@@ -59,7 +59,7 @@ public class ResourceValidationFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 
-		System.out.println("ResourceValidationFilter: start of doFilter");
+		System.out.println("ResourceValidationFilter: start of pooFilter");
 
 		Boolean invalid = true;
 		Boolean hasBearer = false;

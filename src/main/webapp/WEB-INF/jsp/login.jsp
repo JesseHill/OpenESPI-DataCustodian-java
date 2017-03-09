@@ -34,7 +34,8 @@
 
                     <c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">
                         <div class="alert alert-error">
-                            <c:out value="${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.localizedMessage}"/>
+                            Heyyo |
+                            <c:out value="${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}"/>
                         </div>
                     </c:if>
 

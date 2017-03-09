@@ -86,7 +86,7 @@ public class UsagePointRESTController {
 
 		response.setContentType(MediaType.APPLICATION_ATOM_XML_VALUE);
 		try {
-
+			System.out.println("Exporting root usage paoints for subscription: " + subscriptionId);
 			exportService.exportUsagePoints_Root(subscriptionId,
 					response.getOutputStream(), new ExportFilter(params));
 		} catch (Exception e) {
@@ -106,6 +106,7 @@ public class UsagePointRESTController {
 
 		response.setContentType(MediaType.APPLICATION_ATOM_XML_VALUE);
 		try {
+			System.out.println("Exporting root usage point: " + usagePointId + " for subscription: " + subscriptionId);
 			exportService.exportUsagePoint_Root(subscriptionId, usagePointId,
 					response.getOutputStream(), new ExportFilter(params));
 		} catch (Exception e) {
@@ -183,6 +184,7 @@ public class UsagePointRESTController {
 			RetailCustomer retailCustomer = authorization.getRetailCustomer();
 			Long retailCustomerId = retailCustomer.getId();
 
+			System.out.println("Exporting xpath usage points for subscription: " + subscriptionId);
 			exportService.exportUsagePoints(subscriptionId, retailCustomerId,
 					response.getOutputStream(), new ExportFilter(params));
 
@@ -202,6 +204,7 @@ public class UsagePointRESTController {
 		try {
 			Long retailCustomerId = subscriptionService.findRetailCustomerId(
 					subscriptionId, usagePointId);
+			System.out.println("Exporting xpath usage point: " + usagePointId + " for subscription: " + subscriptionId);
 			exportService.exportUsagePoint(subscriptionId, retailCustomerId,
 					usagePointId, response.getOutputStream(), new ExportFilter(
 							params));
