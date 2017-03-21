@@ -16,6 +16,8 @@
 
 package org.energyos.espi.datacustodian.utils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Set;
 
 public class URLHelper {
@@ -25,7 +27,11 @@ public class URLHelper {
 		for (int i = 0; i < scopes.length; i++) {
 			if (i > 0)
 				sb.append("&");
-			sb.append("scope=" + scopes[i]);
+			try {
+				sb.append("scope=" + URLEncoder.encode(scopes[i], "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 		}
 		return sb.toString();
 	}
@@ -36,7 +42,11 @@ public class URLHelper {
 		for (String scope : scopes) {
 			if (i > 0)
 				sb.append("&");
-			sb.append("scope=" + scope);
+			try {
+				sb.append("scope=" + URLEncoder.encode(scope, "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 			i++;
 		}
 		return sb.toString();
